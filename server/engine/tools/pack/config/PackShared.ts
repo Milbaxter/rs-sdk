@@ -633,7 +633,8 @@ export async function packConfigs(cache: FileStream, modelFlags: number[]) {
                 idx.release();
             },
             (client: Packet, _server: Packet): boolean => {
-                return Packet.checkcrc(client.data, 0, client.pos, -795412965);
+                // rs-sdk: includes grand_exchange_booth (upstream 289: -795412965). See PATCHES.md.
+                return Packet.checkcrc(client.data, 0, client.pos, 1515714638);
             }
         );
     }
@@ -708,7 +709,8 @@ export async function packConfigs(cache: FileStream, modelFlags: number[]) {
                 idx.release();
             },
             (client: Packet, _server: Packet): boolean => {
-                return Packet.checkcrc(client.data, 0, client.pos, 424938091);
+                // rs-sdk: includes grand_exchange_teller (upstream 289: 424938091). See PATCHES.md.
+                return Packet.checkcrc(client.data, 0, client.pos, 2103202885);
             }
         );
     }
@@ -783,7 +785,8 @@ export async function packConfigs(cache: FileStream, modelFlags: number[]) {
                 idx.release();
             },
             (client: Packet, _server: Packet): boolean => {
-                return Packet.checkcrc(client.data, 0, client.pos, 266133304);
+                // rs-sdk: includes pvp_death_mark (upstream 289: 266133304). See PATCHES.md.
+                return Packet.checkcrc(client.data, 0, client.pos, 1317612926);
             }
         );
     }
